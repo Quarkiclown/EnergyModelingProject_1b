@@ -1,4 +1,5 @@
 pyproject.toml
+setup.cfg
 caldis/__init__.py
 caldis.egg-info/PKG-INFO
 caldis.egg-info/SOURCES.txt
