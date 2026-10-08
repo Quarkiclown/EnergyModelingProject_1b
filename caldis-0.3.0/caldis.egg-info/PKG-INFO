@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: caldis
+Version: 0.3.0
+Summary: Energy-system component modelling platform
+Requires-Python: >=3.9
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: CoolProp
+Requires-Dist: pandas
+Requires-Dist: matplotlib

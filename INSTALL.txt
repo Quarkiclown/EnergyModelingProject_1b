@@ -1,0 +1,165 @@
+====================================================================
+ CALDIS 0.3.0 - INSTALLATION GUIDE
+ Energy-system component modelling platform
+====================================================================
+
+This document explains how to install the Caldis library on your
+computer. It takes about 5 minutes. Follow the steps in order.
+
+You have received a file named:
+
+    caldis-0.3.0-py3-none-any.whl
+
+This is the package to install. Do not rename it, do not unzip it:
+pip takes care of that.
+
+
+--------------------------------------------------------------------
+ 1. PREREQUISITE: PYTHON
+--------------------------------------------------------------------
+
+You need Python 3.9 or newer.
+
+To check, open a terminal:
+  - Windows : Start menu -> type "cmd" -> Command Prompt
+  - macOS   : "Terminal" application
+  - Linux   : your usual terminal
+
+Then type:
+
+    python --version
+
+You should see something like "Python 3.11.5".
+
+  -> If the command is not recognized, try "python3 --version".
+     If that works, use "python3" and "pip3" instead of "python"
+     and "pip" everywhere below.
+  -> If Python is not installed, download it from
+     https://www.python.org (tick "Add Python to PATH" on Windows).
+
+
+--------------------------------------------------------------------
+ 2. GO TO THE FOLDER CONTAINING THE .whl FILE
+--------------------------------------------------------------------
+
+Find where the file caldis-0.3.0-py3-none-any.whl is located
+(for example, in your Downloads folder).
+
+In the terminal, move into that folder with "cd":
+
+  Windows (example):
+    cd C:\Users\YourName\Downloads
+
+  macOS / Linux (example):
+    cd ~/Downloads
+
+Check that the file is there:
+
+  Windows :     dir
+  macOS/Linux : ls
+
+You should see "caldis-0.3.0-py3-none-any.whl" in the list.
+
+
+--------------------------------------------------------------------
+ 3. (RECOMMENDED) CREATE A VIRTUAL ENVIRONMENT
+--------------------------------------------------------------------
+
+A virtual environment isolates Caldis and its dependencies from the
+rest of your system. This is optional but strongly recommended.
+
+  a) Create it:
+
+       python -m venv .venv
+
+  b) Activate it:
+
+       Windows :        .venv\Scripts\activate
+       macOS / Linux :  source .venv/bin/activate
+
+     Once active, your prompt shows "(.venv)" at the beginning.
+
+  -> Repeat activation (step b) in each new terminal session: just
+     run the activation command again. You do not need to recreate
+     the environment.
+
+If you skip this step, the install goes into your global Python:
+it also works, but it is less clean.
+
+
+--------------------------------------------------------------------
+ 4. INSTALL CALDIS
+--------------------------------------------------------------------
+
+Still in the folder containing the .whl file, type:
+
+    pip install caldis-0.3.0-py3-none-any.whl
+
+pip automatically downloads and installs the required dependencies
+(numpy, scipy, CoolProp, pandas, matplotlib).
+An internet connection is required for this step.
+
+Wait for the message "Successfully installed caldis-0.3.0 ...".
+
+
+--------------------------------------------------------------------
+ 5. CHECK THAT IT WORKS
+--------------------------------------------------------------------
+
+Start Python:
+
+    python
+
+Then type these lines (one at a time):
+
+    import caldis
+    from caldis.core.system import System
+    from caldis.solvers.dynamic import simulate
+    print("Caldis OK")
+
+If "Caldis OK" is printed with no error, the installation
+succeeded. Type "exit()" to leave Python.
+
+
+--------------------------------------------------------------------
+ 6. USAGE
+--------------------------------------------------------------------
+
+You can now import Caldis components in your notebooks or scripts,
+for example:
+
+    from caldis.core.system import System
+    from caldis.components.vessels.tank import TankConstV
+    from caldis.components.combustion.heater import SimpleHeater
+    from caldis.components.machines.turbine import Turbine
+    from caldis.solvers.dynamic import simulate
+    from caldis.fluids.coolprop_backend import CoolPropBackend
+
+The Caldis source code is freely readable: after installation it
+lives in the "caldis/" subfolder of your environment (the
+"site-packages" folder). You may read it to understand how the
+components work. Do not modify it: write your own code in your
+own notebooks.
+
+
+--------------------------------------------------------------------
+ TROUBLESHOOTING
+--------------------------------------------------------------------
+
+* "pip is not recognized":
+    try   python -m pip install caldis-0.3.0-py3-none-any.whl
+
+* "python is not recognized":
+    try "python3" / "pip3", or reinstall Python with
+    "Add Python to PATH" ticked (Windows).
+
+* "Could not find a version that satisfies ...":
+    check your internet connection (dependencies are downloaded
+    online).
+
+* ModuleNotFoundError when importing:
+    check that the virtual environment is active (the prompt must
+    show "(.venv)"), and that the install ended with
+    "Successfully installed caldis-0.3.0".
+
+====================================================================

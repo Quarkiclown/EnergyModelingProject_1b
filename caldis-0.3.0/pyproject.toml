@@ -1,0 +1,13 @@
+[project]
+name = "caldis"
+version = "0.3.0"
+description = "Energy-system component modelling platform"
+requires-python = ">=3.9"
+dependencies = ["numpy", "scipy", "CoolProp", "pandas", "matplotlib"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["caldis*"]
