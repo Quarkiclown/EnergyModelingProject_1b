@@ -1,1 +1,0 @@
-"""Sous-paquet core."""
